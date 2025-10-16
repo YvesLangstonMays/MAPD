@@ -138,6 +138,18 @@ mean_timecourses.png
 
 - Cluster averaged temporal phosphorylation patterns
 
+## Discussion of Results
+
+Plotting of the clustered EGF Response produced three dynamic motifs.
+
+- Cluster 0 (Blue): Displays a gradual, sustained increase.
+- Cluster 1 (Orange): Displays a transient early peak followed by strong repression.
+- Cluster 2 (Green): Displays biphasic behavior. An early rise is observed, following a dip, then reactivation.
+
+After PCA was performed, 72% of the variance was captured in two components.
+
+tSNE colored by cluster displays separation via three arc like clusters.
+
 ## Citations
 
 Olsen, J. V., Blagoev, B., Gnad, F., Macek, B., Kumar, C., Mortensen, P., & Mann, M. (2006).
