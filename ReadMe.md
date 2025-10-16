@@ -126,9 +126,17 @@ results/
 
 ## Outputs
 
-pca_variance.png - 2D PCA showing structure
-tsne_clusters.png - t-SNE embedded with K means color labels
-mean_timecourses.png - Cluster averaged temporal phosphorylation patterns
+pca_variance.png
+
+- 2D PCA showing structure
+
+tsne_clusters.png
+
+- t-SNE embedded with K means color labels
+
+mean_timecourses.png
+
+- Cluster averaged temporal phosphorylation patterns
 
 ## Citations
 
