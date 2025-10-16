@@ -79,7 +79,12 @@ This table contains the following:
 
 ### Table S6 - Processed and Statistically Significant Data
 
-This is a filtered subset of S2 containing pps that meet the criteria of: - High localization probability as defined by the range >0.75-0.9 - Consistent kinetic pattern across replicates - Reproducible ratios - pY enriched peptides since EGF signaling is tyrosine kinase driven
+This is a filtered subset of S2 containing pps that meet the criteria of:
+
+- High localization probability as defined by the range >0.75-0.9
+- Consistent kinetic pattern across replicates
+- Reproducible ratios
+- pY enriched peptides since EGF signaling is tyrosine kinase driven
 
 Each peptide entry includes:
 
