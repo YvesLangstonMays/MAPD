@@ -1,4 +1,4 @@
-# Mini Analysis of EGF-Induced Phosphorylation Dynamics
+# Mini Analysis of (EGF-Induced) Phosphorylation Dynamics
 
 **Based on ata from Olsen et al. (Science, 2006)**
 
@@ -110,4 +110,3 @@ mean_timecourses.png - Cluster averaged temporal phosphorylation patterns
 
 Olsen, J. V., Blagoev, B., Gnad, F., Macek, B., Kumar, C., Mortensen, P., & Mann, M. (2006).
 Global, in vivo, and site-specific phosphorylation dynamics in signaling networks. Science, 313(5790), 1630–1638.
-# MAPD
