@@ -1,6 +1,6 @@
 # Mini Analysis of (EGF-Induced) Phosphorylation Dynamics
 
-**Based on ata from Olsen et al. (Science, 2006)**
+**Based on data from Olsen et al. (Science, 2006)**
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@
 
 ## Background
 
-The goal of Olsen et al. (2006) was to map phosphorylation signaling dynamics in human cells following epidermal growth factor (EGF) simulation. Phosphorylation is a key regulatory even in signaling - EGF activates a receptor tyrosine kinase (EGFR), whic triggers cascades of phosphorylation across hundreds of downstream proteins.
+The goal of Olsen et al. (2006) was to map phosphorylation signaling dynamics in human cells following epidermal growth factor (EGF) simulation. Phosphorylation is a key regulatory even in signaling - EGF activates a receptor tyrosine kinase (EGFR), which triggers cascades of phosphorylation across hundreds of downstream proteins.
 
 Using quantitative mass spectromoy, amino acid residues that become phosphorylated over time after EGF stimulation were tracked.
 
@@ -39,7 +39,7 @@ Each peptide spectrum was matched to known protein sequences using the Mascot se
 A phosphosite refers to the exact residue on a protein that carries the phosphate group. For example:
 EGFR Y1173 represents a tyrosine residue at position 1173 on EGFR
 
-Different sites on the same protein can have distinc or even opposing functions, making exact site identification critical.
+Different sites on the same protein can have distinct or even opposing functions, making exact site identification critical.
 
 ## Quantitative Measurements
 
@@ -106,7 +106,7 @@ THe datasat captures dynamic phopsphorylation responses across the EGF network, 
 
 - Loads Table S6
 - Normalizes phosphopeptide signals in the form of by z scores across time
-- Performes dimentsionality reduction
+- Performes dimensionality reduction
 - Clusters peptides using K means
 - Visualizes PCA variance, cluster separation using t-SNE, and average phosphorylation dynamics per cluster
 
