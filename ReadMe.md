@@ -148,6 +148,8 @@ Plotting of the clustered EGF Response produced three dynamic motifs.
 - Cluster 1 (Orange): Displays a transient early peak followed by strong repression.
 - Cluster 2 (Green): Displays biphasic behavior. An early rise is observed, following a dip, then reactivation.
 
+Clusters 1 and 2 appear to be modeling opposing kinase/phosphatase behavior.
+
 ![PCA Variance](Results/pca_variance.png)
 After PCA was performed, 72% of the variance was captured in two components.
 
