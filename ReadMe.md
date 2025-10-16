@@ -2,7 +2,7 @@
 
 **Based on ata from Olsen et al. (Science, 2006)**
 
-## 📑 Table of Contents
+## Table of Contents
 
 - [Background](#background)
 - [Biological Context](#biological-context)
