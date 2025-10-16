@@ -2,6 +2,22 @@
 
 **Based on ata from Olsen et al. (Science, 2006)**
 
+## 📑 Table of Contents
+
+- [Background](#background)
+- [Biological Context](#biological-context)
+- [Quantitative Measurements](#quantitative-measurements)
+- [Methodology](#methodology)
+- [Dataset Overview](#dataset-overview)
+  - [Table S2 — Raw Quantitative Data](#table-s2---raw-quantitative-data)
+  - [Table S6 — Processed and Statistically Significant Data](#table-s6---processed-and-statistically-significant-data)
+- [Interpretation](#interpretation)
+- [Environment](#environment)
+- [What This Repository Does](#what-this-repository-does)
+- [Files](#files)
+- [Outputs](#outputs)
+- [Citation](#citation)
+
 ## Background
 
 The goal of Olsen et al. (2006) was to map phosphorylation signaling dynamics in human cells following epidermal growth factor (EGF) simulation. Phosphorylation is a key regulatory even in signaling - EGF activates a receptor tyrosine kinase (EGFR), whic triggers cascades of phosphorylation across hundreds of downstream proteins.
