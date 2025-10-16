@@ -16,7 +16,7 @@
 - [What This Repository Does](#what-this-repository-does)
 - [Files](#files)
 - [Outputs](#outputs)
-- [Discussion of Results] (#discussion-of-results)
+- [Discussion of Results](#discussion-of-results)
 - [Citation](#citation)
 
 ## Background
