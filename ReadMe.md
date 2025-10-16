@@ -96,9 +96,13 @@ THe datasat captures dynamic phopsphorylation responses across the EGF network, 
 
 ## Files
 
-main.py - Main analysis script
-OlsenData_TableS6.csv - Processed phosphopeptide data
-results/ - Output folder for PCA, t-SNE, and time course plots
+main.py
+
+- Main analysis script
+  OlsenData_TableS6.csv
+- Processed phosphopeptide data
+  results/
+- Output folder for PCA, t-SNE, and time course plots
 
 ## Outputs
 
