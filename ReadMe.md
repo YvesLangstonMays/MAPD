@@ -142,13 +142,16 @@ mean_timecourses.png
 ## Discussion of Results
 
 Plotting of the clustered EGF Response produced three dynamic motifs.
+![Average EGF Response](results/mean_timecourses.png)
 
 - Cluster 0 (Blue): Displays a gradual, sustained increase.
 - Cluster 1 (Orange): Displays a transient early peak followed by strong repression.
 - Cluster 2 (Green): Displays biphasic behavior. An early rise is observed, following a dip, then reactivation.
 
+![PCA Variance](results/pca_variance.png)
 After PCA was performed, 72% of the variance was captured in two components.
 
+![t-SNE Clusters](results/tsne_clusters.png)
 tSNE colored by cluster displays separation via three arc like clusters.
 
 ## Citations
