@@ -111,9 +111,9 @@ THe datasat captures dynamic phopsphorylation responses across the EGF network, 
 ## What THis Repository Does
 
 - Loads Table S6
-- Normalizes phosphopeptide signals in the form of by z scores across time
+- Normalizes phosphopeptide signals in the form of by z scores per peptide across time
 - Performes dimensionality reduction
-- Clusters peptides using K means
+- Clusters peptides using K means with a k value of 3
 - Visualizes PCA variance, cluster separation using t-SNE, and average phosphorylation dynamics per cluster
 
 ## Files

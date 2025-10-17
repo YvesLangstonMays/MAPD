@@ -19,6 +19,11 @@ from sklearn.decomposition import PCA
 
 
 """
+Silhouette score
+"""
+from sklearn.metrics import silhouette_score
+
+"""
 t-distributed stochastic neighbor embedding is nonlinear dimensionality reduction for
 visualization
 preserves local neighborhoods, so rather than preserving absolute distances,
@@ -138,3 +143,34 @@ plt.title("Average EGF response per cluster")
 plt.legend()
 plt.savefig(results_dir / "mean_timecourses.png", dpi=300)
 plt.close()
+
+
+"""
+Validation via silhouette and gap
+
+"""
+
+# initialize list
+silhouette_scores = []
+
+K_range = range(2, 10)
+
+for k in K_range:
+    kmeans = KMeans(n_clusters=k, n_init=10, random_state=42)
+    labels = kmeans.fit_predict(Z)
+    sil = silhouette_score(Z, labels)
+    silhouette_scores.append(sil)
+
+plt.figure(figsize=(6, 4))
+plt.plot(K_range, silhouette_scores, marker="o")
+plt.title("Silhouette Score vs. Number of Clusters")
+plt.xlabel("Number of clusters (k)")
+plt.ylabel("Mean Silhouette Score")
+plt.grid(True)
+plt.tight_layout()
+plt.savefig(results_dir / "silhouette_scores.png", dpi=300)
+plt.close()
+
+
+best_k_sillhouette = K_range[np.argmax(silhouette_scores)]
+print(f"optimal k by silhouette: ", {best_k_sillhouette})
