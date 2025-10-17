@@ -20,6 +20,14 @@ from sklearn.decomposition import PCA
 
 from tqdm import tqdm
 
+"""
+Library to find the Shannon entropy, the measure of uncertainty or variability in a probability distribution
+for distribution with probabilities pk, use the formula H = -sigma(pk * log(pk))
+for relative entropy between two distributions pk and qk, use D = sigma(pk * log(pk/qk))
+This is the summation of the product of each probabilitiy (pk) and its logarithm, then multiplying the result by -1
+
+
+"""
 from scipy.stats import entropy
 
 """
@@ -367,8 +375,13 @@ plt.show()
 
 """
 'fuzziness index' = entropy per peptide
-entropy closer to 0 means the peptide is tightly assigned to one cluster
+entropy closer to 0 means the peptide is tightly assigned to one cluster because the entropy
+represents the variability of the distribution
 entropy closer to 1 means the peptide shares membership broadly and there may possible signaling cross-talk
+
+Shannon entropy measures the uncertainty or variability in a probability distribution. So we are taking
+the membership values, which represent probabilities of peptides belonging to a certain cluster
+and measuring the variance of the membership of each peptide to a group/cluster for all of the peptides
 """
 df["entropy"] = memberships.apply(lambda x: entropy(x, base=6), axis=1)
 
@@ -390,6 +403,10 @@ entropy histogram, network overlay where i can map cluster memberships onto a st
 graph
 """
 
+"""
+So here I'm looking for the peptides with the highest (closest to 1) entropy, putting them into a list or 
+a dictionary, then comparing them to known pathways on Uniprot
+"""
 top_membership = entropy_by_protein.max()
 top_membership_index = entropy_by_protein.idxmax()
 
@@ -399,6 +416,6 @@ print(f"\nTop member: ", {top_membership}, "Top member ID: ", {top_membership_in
 ipi_ids = ["IPI00306280"]
 
 peptides = df.loc[df["Accession"] == ipi_id, "Phosphopeptide sequence"].unique()
-print(f"Peptides for {ipi_id}:")
+print(f"Peptides for {ipi_ids}:")
 for pep in peptides:
     print(pep)
