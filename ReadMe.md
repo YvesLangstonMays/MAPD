@@ -146,8 +146,10 @@ mean_timecourses.png
 
 ## Discussion of Results
 
+### K = 3
+
 Plotting of the clustered EGF Response produced three dynamic motifs.
-![Average EGF Response](Results/mean_timecourses.png)
+![Average EGF Response](Results/mean_timecourses_k_3.png)
 
 - Cluster 0 (Blue): Displays a gradual, sustained increase.
 - Cluster 1 (Orange): Displays a transient early peak followed by strong repression.
@@ -155,10 +157,10 @@ Plotting of the clustered EGF Response produced three dynamic motifs.
 
 Clusters 1 and 2 appear to be modeling opposing kinase/phosphatase behavior.
 
-![PCA Variance](Results/pca_variance.png)
+![PCA Variance](Results/pca_variance_k_3.png)
 After PCA was performed, 72% of the variance was captured in two components.
 
-![t-SNE Clusters](Results/tsne_clusters.png)
+![t-SNE Clusters](Results/tsne_clusters_k_3.png)
 tSNE colored by cluster displays separation via three arc like clusters.
 
 ## Citations
