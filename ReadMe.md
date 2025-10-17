@@ -1,6 +1,6 @@
 # Mini Analysis of (EGF-Induced) Phosphorylation Dynamics
 
-**Based on data from Olsen et al. (Science, 2006)**
+**Based on data from Olsen et al. (Cell, 2006)**
 
 ## Table of Contents
 
@@ -163,5 +163,4 @@ tSNE colored by cluster displays separation via three arc like clusters.
 
 ## Citations
 
-Olsen, J. V., Blagoev, B., Gnad, F., Macek, B., Kumar, C., Mortensen, P., & Mann, M. (2006).
-Global, in vivo, and site-specific phosphorylation dynamics in signaling networks. Science, 313(5790), 1630–1638.
+Olsen, J. V., Blagoev, B., Gnad, F., Macek, B., Kumar, C., Mortensen, P., & Mann, M. (2006). Global, in vivo, and site-specific phosphorylation dynamics in signaling networks. Cell, 127(3), 635–648. https://doi.org/10.1016/j.cell.2006.09.026
