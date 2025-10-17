@@ -17,6 +17,7 @@ down to only the principal components that explain most of the variation
 """
 from sklearn.decomposition import PCA
 
+from tqdm import tqdm
 
 """
 Silhouette score
@@ -40,7 +41,7 @@ results_dir = Path("Results")
 results_dir.mkdir(exist_ok=True)
 
 # set global k val
-k_val = 2
+k_val = 3
 
 df = pd.read_csv("OlsenData_TableS6.csv")
 
@@ -157,9 +158,10 @@ Validation via silhouette and gap
 # initialize list
 silhouette_scores = []
 
-# define k range
+# define k range for cluster testing
 K_range = range(2, 10)
 
+# compute score and add to list
 for k in K_range:
     kmeans = KMeans(n_clusters=k, n_init=10, random_state=42)
     labels = kmeans.fit_predict(Z)
@@ -168,8 +170,8 @@ for k in K_range:
 
 plt.figure(figsize=(6, 4))
 plt.plot(K_range, silhouette_scores, marker="o")
-plt.title("Silhouette Score vs. Number of Clusters")
-plt.xlabel("Number of clusters (k)")
+plt.title("Silhouette Score vs. # of Clusters")
+plt.xlabel("# of clusters (k)")
 plt.ylabel("Mean Silhouette Score")
 plt.grid(True)
 plt.tight_layout()
@@ -179,3 +181,63 @@ plt.close()
 # print best k
 best_k_sillhouette = K_range[np.argmax(silhouette_scores)]
 print(f"optimal k by silhouette: ", {best_k_sillhouette})
+
+"""
+
+Increasing number of clusters reduces the within cluster sum of squared distances, referred tp as
+intertia. If inertia is used as a metric, the pitfall of increasing clusters
+is inevitable. 
+
+The gap statistic aims to fix this by measuring how much better the clustering is than
+what would be expected from random noise.
+
+If the data has real clusters, the inertia will be much lower than random data with no
+structure. If adding more cluseters doesnt imrpove much, beyond what random noise would,
+the k needs to be lowered.
+
+A gap is the difference betwwen the expected log(Wk) from a reference dataset
+and the observed log(Wk) from the actual dataset. 
+
+Both Wk values represent within cluster disperson, applied to the actual and random
+datasets, respectively
+
+The optimal number of clusters, k is the smallest k such that the Gap(k) >= Gap(k + 1) - s(k+1)
+where s(k+1) is the standard deviation of the simulated gap values that adjusts for simulation 
+variability in the reference datasets
+
+Here, we pick the k with the largest gap value since that represents a large difference
+between our actual data and random noise.
+"""
+
+
+def gap_stat(data, refs=10, max_k=10):
+    gaps = np.zeros(max_k - 1)
+    for k in tqdm(range(1, max_k), desc="computing gap stat"):
+        km = KMeans(n_clusters=k_val, n_init=10, random_state=42)
+        km.fit(data)
+        disp = np.log(km.inertia_)
+
+        ref_disps = np.zeros(refs)
+        for i in range(refs):
+            random_ref = np.random.random_sample(size=data.shape)
+            km_ref = KMeans(n_clusters=k_val, n_init=10, random_state=42)
+            km_ref.fit(random_ref)
+            ref_disps[i] = np.log(km_ref.inertia_)
+        # computes the gaps for each k
+        gaps[k - 1] = np.mean(ref_disps) - disp
+    return gaps
+
+
+gaps = gap_stat(Z, refs=10, max_k=10)
+plt.figure(figsize=(6, 4))
+plt.plot(range(1, 10), gaps, marker="o")
+plt.title("Gap Stat vs. # of Clusters")
+plt.xlabel("# of clusters (k)")
+plt.ylabel("Gap Value")
+plt.grid(True)
+plt.tight_layout()
+plt.savefig(results_dir / f"gap_stat_k_{k_val}.png", dpi=300)
+plt.close()
+
+best_k_gap = np.argmax(gaps) + 1
+print(f"optimal k by gap: {best_k_gap}")
