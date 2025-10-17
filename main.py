@@ -1,11 +1,29 @@
-# pandas for dataframe manipulations
+"""
+Pandas library for manipulating data
+"""
+
 import pandas as pd
 
+"""
 # numpy for numeric operations and specialized arrays
+"""
 import numpy as np
+
+"""
+seaborn for visualizing
+"""
+
+import seaborn as sns
 
 # plotting library for figures
 import matplotlib.pyplot as plt
+
+# stats for anova
+import scipy.stats as stats
+
+import statsmodels.api as sm
+
+from statsmodels.formula.api import ols
 
 
 # pathlib for file management and filesystem navigation
@@ -25,7 +43,6 @@ Library to find the Shannon entropy, the measure of uncertainty or variability i
 for distribution with probabilities pk, use the formula H = -sigma(pk * log(pk))
 for relative entropy between two distributions pk and qk, use D = sigma(pk * log(pk/qk))
 This is the summation of the product of each probabilitiy (pk) and its logarithm, then multiplying the result by -1
-
 
 """
 from scipy.stats import entropy
@@ -174,6 +191,14 @@ plt.close()
 
 ################### Silhouette Scores ##################
 """
+A silhouette score is a metricu in unsupervised learning to evaluate the quality of clusters create by
+a clustering algorithm. It measures how well each data point fits into its assigned cluster by
+comparing its average intra cluster distance to its average near cluster distance. The scores
+range from -1 to +1, where a higher score indicates better defined clusters, a score near 0 suggests overlapping 
+clusters, and a negative score omplies a point may be in the wrong cluster
+
+
+
 Validation via silhouette and gap for kmeans
 
 """
@@ -272,7 +297,7 @@ silhouette_summary["Gap_values"] = gaps.tolist()
 
 ############## DB SCAN & GMM ###############
 """
-GMM reveals soft clusters (overlapping subgroups).
+GMM Gaussian Mixture MOdel reveals soft clusters (overlapping subgroups).
 Each point has a membership probability to all clusters
 
 """
@@ -346,7 +371,6 @@ for method, score in silhouette_summary.items():
 
 print("\n\n")
 """
-Olsen et al. use of fuzzy was correct, since there are no distinct boundaries between the data.
 
 Exploring memberships as experimental variables
 """
@@ -375,19 +399,27 @@ plt.show()
 
 """
 'fuzziness index' = entropy per peptide
-entropy closer to 0 means the peptide is tightly assigned to one cluster because the entropy
-represents the variability of the distribution
-entropy closer to 1 means the peptide shares membership broadly and there may possible signaling cross-talk
+
 
 Shannon entropy measures the uncertainty or variability in a probability distribution. So we are taking
 the membership values, which represent probabilities of peptides belonging to a certain cluster
 and measuring the variance of the membership of each peptide to a group/cluster for all of the peptides
+
+Entropy values closer to 0 suggest that the peptide has dominant membership to one particular cluster
+This may represent a phosphite responding on one distinct pattern
+
+Entropy values closer to 1 suggest that the phosphotsite is shared between clusters
 """
-df["entropy"] = memberships.apply(lambda x: entropy(x, base=6), axis=1)
+
+
+df["entropy"] = memberships.apply(
+    lambda x: entropy(x, base=len(memberships.columns)), axis=1
+)
+
 
 entropy_by_protein = df.groupby("Accession")["entropy"].mean()
 print("Entropy by protein \n")
-print(entropy_by_protein)
+print(entropy_by_protein.head(15))
 
 """
 Next: mapping to known pathways
@@ -404,18 +436,70 @@ graph
 """
 
 """
-So here I'm looking for the peptides with the highest (closest to 1) entropy, putting them into a list or 
-a dictionary, then comparing them to known pathways on Uniprot
+Here I find the top membership just to get an idea of how my uniprot query should be structured. 
+Then I need to create a dictionary containing ID:sequence pairs linked to the
+entropy? The entropy is a measure of how strongly a peptide belongs to a specific cluster, 
+biologicall signifying possibly important signaling pathway proteins? So I want
+to create a new dataframe with the ID, Sequence, entropy, membership value, and uniprot ID, 
+where uniprot ID will, I guess, be the ID of the protein on uniprot
+that most strongly matches our sequence.
+
+revised: Here I identify peptides with high membership to examine which sites are most confidently 
+assigned to a single kinetic pattern.
+These high membership peptides are likely to be well-defined signaling nodes, 
+and their sequences will be used to guide UniProt queries. 
 """
-top_membership = entropy_by_protein.max()
-top_membership_index = entropy_by_protein.idxmax()
+high_membership_threshold = 0.75
 
-print(f"\nTop member: ", {top_membership}, "Top member ID: ", {top_membership_index})
-# find the sequence corresponding to the top member
+high_conf_peptides = df[df["dominant_strength"] >= high_membership_threshold].copy()
 
-ipi_ids = ["IPI00306280"]
+peptide_dict = (
+    high_conf_peptides[
+        ["Accession", "Phosphopeptide sequence", "entropy", "dominant_strength"]
+    ]
+    .set_index("Accession")
+    .T.to_dict()
+)
 
-peptides = df.loc[df["Accession"] == ipi_id, "Phosphopeptide sequence"].unique()
-print(f"Peptides for {ipi_ids}:")
-for pep in peptides:
-    print(pep)
+
+"""
+Visualizing per cluster to see if some cluster have lower entropy than others
+"""
+sns.kdeplot(
+    data=df,
+    x="entropy",
+    hue="dominant_cluster",
+    common_norm=False,
+    fill=True,
+    alpha=0.4,
+)
+plt.title("Entropy per dominant cluster")
+plt.xlabel("Entropy")
+plt.ylabel("Density")
+plt.savefig(results_dir / f"Entropy_Per_Dom_Cluster.png", dpi=300)
+plt.show()
+
+
+"""
+one way ANOVA entropy ~ dominant cluster
+
+Type 2 anova tests each main effect in the presence of other main effect without considering
+interactions. Used for when there is no significanti nteraction in unbalanced data
+"""
+
+anova_model = ols("entropy ~ C(dominant_cluster)", data=df).fit()
+anova_table = sm.stats.anova_lm(anova_model, typ=2)
+print("\n")
+print(anova_table)
+
+"""
+Anova Table
+                       sum_sq      df          F        PR(>F)
+C(dominant_cluster)   6.821040     5.0  35.286787  2.009496e-33
+Residual             40.361657  1044.0        NaN           NaN
+
+
+The p value is below 0.05 so we can reject the null hypothesis that each cluster entropy mean 
+do not differ significantly.
+
+"""
