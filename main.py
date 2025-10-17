@@ -10,23 +10,25 @@ import matplotlib.pyplot as plt
 # pathlib for file management and filesystem navigation
 from pathlib import Path
 
-# sklearn is a standard ML toolkit
-# principal component analysis reduces the dimensions of the data linearly
-# down to only the principal components that explain most of the variation
+"""
+sklearn is a standard ML toolkit
+principal component analysis reduces the dimensions of the data linearly
+down to only the principal components that explain most of the variation
+"""
 from sklearn.decomposition import PCA
 
 
 """
-# t-distributed stochastic neighbor embedding is nonlinear dimensionality reduction for
-# visualization
-# preserves local neighborhoods, so rather than preserving absolute distances,
-# it preserves the probabilities of two points being neighbors in the original
-# dimensional space
+t-distributed stochastic neighbor embedding is nonlinear dimensionality reduction for
+visualization
+preserves local neighborhoods, so rather than preserving absolute distances,
+it preserves the probabilities of two points being neighbors in the original
+dimensional space
 """
 from sklearn.manifold import TSNE
 
-# KMeans is a clustering algorithm that assigns each point to one of k centroids by minimizing
-# squared euclidean distance within the clusters
+""" KMeans is a clustering algorithm that assigns each point to one of k centroids by minimizing
+squared euclidean distance within the clusters """
 from sklearn.cluster import KMeans
 
 results_dir = Path("Results")
@@ -136,5 +138,3 @@ plt.title("Average EGF response per cluster")
 plt.legend()
 plt.savefig(results_dir / "mean_timecourses.png", dpi=300)
 plt.close()
-
-print("✅ Mini-analysis complete — figures saved in ./results/")
