@@ -3,3 +3,4 @@ faiss-cpu>=1.7
 matplotlib>=3.7
 scikit-learn>=1.4
 tqdm
+hdbscan

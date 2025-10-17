@@ -7,6 +7,7 @@ import numpy as np
 # plotting library for figures
 import matplotlib.pyplot as plt
 
+
 # pathlib for file management and filesystem navigation
 from pathlib import Path
 
@@ -19,10 +20,22 @@ from sklearn.decomposition import PCA
 
 from tqdm import tqdm
 
+from scipy.stats import entropy
+
 """
 Silhouette score
 """
 from sklearn.metrics import silhouette_score
+
+"""
+Since our gap gave an optimal k of 7, and the silhouette gave an optimal
+k of 2, there may be a hierarchical structure to our data.
+
+These two libraries will help elucidate the hierachy embedded in our data.
+"""
+
+from sklearn.mixture import GaussianMixture
+import hdbscan
 
 """
 t-distributed stochastic neighbor embedding is nonlinear dimensionality reduction for
@@ -39,6 +52,8 @@ from sklearn.cluster import KMeans
 
 results_dir = Path("Results")
 results_dir.mkdir(exist_ok=True)
+
+silhouette_summary = {}
 
 # set global k val
 k_val = 3
@@ -149,9 +164,9 @@ plt.legend()
 plt.savefig(results_dir / f"mean_timecourses_k_{k_val}.png", dpi=300)
 plt.close()
 
-
+################### Silhouette Scores ##################
 """
-Validation via silhouette and gap
+Validation via silhouette and gap for kmeans
 
 """
 
@@ -179,8 +194,9 @@ plt.savefig(results_dir / f"silhouette_scores_k_{k_val}.png", dpi=300)
 plt.close()
 
 # print best k
-best_k_sillhouette = K_range[np.argmax(silhouette_scores)]
-print(f"optimal k by silhouette: ", {best_k_sillhouette})
+best_kmeans_sillhouette = K_range[np.argmax(silhouette_scores)]
+silhouette_summary["KMeans_best_k"] = best_kmeans_sillhouette
+silhouette_summary["KMeans_silhouette"] = max(silhouette_scores)
 
 """
 
@@ -241,3 +257,148 @@ plt.close()
 
 best_k_gap = np.argmax(gaps) + 1
 print(f"optimal k by gap: {best_k_gap}")
+
+silhouette_summary["Gap_best_k"] = best_k_gap
+silhouette_summary["Gap_values"] = gaps.tolist()
+
+
+############## DB SCAN & GMM ###############
+"""
+GMM reveals soft clusters (overlapping subgroups).
+Each point has a membership probability to all clusters
+
+"""
+
+gmm_silhouette_scores = []
+for k in K_range:
+    gmm = GaussianMixture(n_components=k, covariance_type="full", random_state=42)
+    gmm_labels = gmm.fit_predict(Z)
+    sil = silhouette_score(Z, gmm_labels)
+    gmm_silhouette_scores.append(sil)
+
+plt.figure(figsize=(6, 4))
+plt.plot(K_range, gmm_silhouette_scores, marker="o", color="crimson")
+plt.title("GMM  Score vs. # of Components")
+plt.xlabel("# of components (k)")
+plt.ylabel("GMM Score")
+plt.grid(True)
+plt.tight_layout()
+plt.savefig(results_dir / f"gmm_scores_k_{k_val}.png", dpi=300)
+plt.close()
+
+best_k_gmm = K_range[np.argmax(gmm_silhouette_scores)]
+silhouette_summary["GMM_best_k"] = best_k_gmm
+silhouette_summary["GMM_silhouette"] = max(gmm_silhouette_scores)
+
+# visualize GMM clustering on tSNE space
+gmm_best = GaussianMixture(
+    n_components=best_k_gmm, covariance_type="full", random_state=42
+)
+gmm_labels = gmm_best.fit_predict(Z)
+
+plt.figure(figsize=(6, 5))
+plt.scatter(U[:, 0], U[:, 1], c=gmm_labels, cmap="plasma", s=10)
+plt.title("tSNE of GMM Clusters")
+plt.xlabel("tSNE 1")
+plt.ylabel("tSNE 2")
+plt.colorbar(label="Cluster")
+plt.savefig(results_dir / f"tsne_gmm_clusters_k_{k_val}.png", dpi=300)
+plt.close()
+
+
+"""
+HDBSCAN revals hard clusters and outliers.
+
+"""
+
+# min_cluster_size defines the smallest size of dense regions
+hdb = hdbscan.HDBSCAN(min_cluster_size=20, min_samples=5, cluster_selection_epsilon=0.0)
+hdb_labels = hdb.fit_predict(Z)
+
+# compute silhouette only if multiple clusters exist
+if len(set(hdb_labels)) > 1:
+    hdb_sil = silhouette_score(Z, hdb_labels)
+    silhouette_summary["HDBSCAN_silhouette"] = hdb_sil
+else:
+    silhouette_summary["HDBSCAN_silhouette"] = None
+
+plt.figure(figsize=(6, 5))
+plt.scatter(U[:, 0], U[:, 1], c=hdb_labels, cmap="Spectral", s=10)
+plt.title("t-SNE of HDBSCAN Clusters")
+plt.xlabel("t-SNE 1")
+plt.ylabel("t-SNE 2")
+plt.colorbar(label="Cluster")
+plt.savefig(results_dir / f"tsne_hdbscan_clusters_k_{k_val}.png", dpi=300)
+plt.close()
+
+print("\n\n==== Validation Scores Summary  ====")
+for method, score in silhouette_summary.items():
+    print(f"{method:20s}: {score}")
+
+
+print("\n\n")
+"""
+Olsen et al. use of fuzzy was correct, since there are no distinct boundaries between the data.
+
+Exploring memberships as experimental variables
+"""
+
+memberships = df.filter(like="membership").apply(pd.to_numeric, errors="coerce")
+memberships.sum(axis=1).describe()
+memberships.max(axis=1).hist(bins=50)
+plt.title("Dist of max membership per peptide")
+plt.xlabel("max membership")
+plt.ylabel("Freq")
+plt.show()
+
+df["dominant_cluster"] = memberships.idxmax(axis=1)
+df["dominant_strength"] = memberships.max(axis=1)
+
+
+for c in memberships.columns:
+    mask = df["dominant_cluster"] == c
+    mu = df.loc[mask, time_columns].mean()
+    plt.plot([0, 1, 5, 10, 20], mu, label=f"{c} (n={mask.sum()})")
+plt.legend()
+plt.title("avg egf response by dom cluster")
+plt.xlabel("Time (min)")
+plt.ylabel("Phospho ratio")
+plt.show()
+
+"""
+'fuzziness index' = entropy per peptide
+entropy closer to 0 means the peptide is tightly assigned to one cluster
+entropy closer to 1 means the peptide shares membership broadly and there may possible signaling cross-talk
+"""
+df["entropy"] = memberships.apply(lambda x: entropy(x, base=6), axis=1)
+
+entropy_by_protein = df.groupby("Accession")["entropy"].mean()
+print("Entropy by protein \n")
+print(entropy_by_protein)
+
+"""
+Next: mapping to known pathways
+taking the dominant cluster or top 2 memberships per peptide
+map them to proteins using uniprot or phosphositeplus
+do enrichment analysis, reactome or STRING, per cluster
+
+this should show which clusters correspond to Early EGFR autophosphorylation events, mapk/erk cascades,
+cytosekeltal remodeling, nuclear transcriptional feedback
+
+then I need to visualize it somehow.. maybe a membership heatmap, peptides vs clusters, colored by strength
+entropy histogram, network overlay where i can map cluster memberships onto a string protein interaction
+graph
+"""
+
+top_membership = entropy_by_protein.max()
+top_membership_index = entropy_by_protein.idxmax()
+
+print(f"\nTop member: ", {top_membership}, "Top member ID: ", {top_membership_index})
+# find the sequence corresponding to the top member
+
+ipi_ids = ["IPI00306280"]
+
+peptides = df.loc[df["Accession"] == ipi_id, "Phosphopeptide sequence"].unique()
+print(f"Peptides for {ipi_id}:")
+for pep in peptides:
+    print(pep)

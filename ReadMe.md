@@ -174,7 +174,7 @@ tSNE colored by cluster displays separation via three arc like clusters.
 
 ## Validation of Clustering
 
-![Silhouette Scores](Results/silhouette_scores_k_3.png)
+![K Means Silhouette Score](Results/silhouette_scores_k_3.png)
 ![Gap Statistic](Results/gap_stat_k_3.png)
 
 ## Citations
