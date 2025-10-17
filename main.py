@@ -15,13 +15,13 @@ from pathlib import Path
 # down to only the principal components that explain most of the variation
 from sklearn.decomposition import PCA
 
+
+"""
 # t-distributed stochastic neighbor embedding is nonlinear dimensionality reduction for
 # visualization
 # preserves local neighborhoods, so rather than preserving absolute distances,
 # it preserves the probabilities of two points being neighbors in the original
 # dimensional space
-"""
-
 """
 from sklearn.manifold import TSNE
 
