@@ -40,7 +40,7 @@ results_dir = Path("Results")
 results_dir.mkdir(exist_ok=True)
 
 # set global k val
-k_val = 3
+k_val = 2
 
 df = pd.read_csv("OlsenData_TableS6.csv")
 
@@ -91,7 +91,7 @@ plt.title(
 )
 plt.xlabel("PC1")
 plt.ylabel("PC2")
-plt.savefig(results_dir / f"pca_variance.png_k_{k_val}.png", dpi=300)
+plt.savefig(results_dir / f"pca_variance_k_{k_val}.png", dpi=300)
 plt.close()
 
 """
