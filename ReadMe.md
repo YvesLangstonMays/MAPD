@@ -172,6 +172,10 @@ tSNE colored by cluster displays separation via three arc like clusters.
 ![t-SNE Clusters](Results/tsne_clusters_k_2.png)
 tSNE colored by cluster displays separation via three arc like clusters.
 
+## Validation of Clustering
+
+![Silhouette Scores](Results/silhouette_scores_k_3.png)
+
 ## Citations
 
 Olsen, J. V., Blagoev, B., Gnad, F., Macek, B., Kumar, C., Mortensen, P., & Mann, M. (2006). Global, in vivo, and site-specific phosphorylation dynamics in signaling networks. Cell, 127(3), 635–648. https://doi.org/10.1016/j.cell.2006.09.026
