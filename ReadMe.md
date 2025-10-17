@@ -98,7 +98,7 @@ Beause Table S6 contains pps that passed localization and reproducibility standa
 
 THe datasat captures dynamic phopsphorylation responses across the EGF network, revealing patterns of:
 
-- Early, transient activation that may represent receptor autophosphorylation (constitutively active?)
+- Early, transient activation that may represent receptor autophosphorylation
 - Delayed signaling responses
 - Sustained or feedback-modulated phospho events
 
