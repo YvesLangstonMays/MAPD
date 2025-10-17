@@ -1,5 +1,4 @@
-pandas
-faiss
-matplotlib
-umap-learn
-sklearn
+pandas>=2.0
+faiss-cpu>=1.7
+matplotlib>=3.7
+scikit-learn>=1.4

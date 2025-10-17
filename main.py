@@ -39,6 +39,9 @@ from sklearn.cluster import KMeans
 results_dir = Path("Results")
 results_dir.mkdir(exist_ok=True)
 
+# set global k val
+k_val = 3
+
 df = pd.read_csv("OlsenData_TableS6.csv")
 
 
@@ -88,7 +91,7 @@ plt.title(
 )
 plt.xlabel("PC1")
 plt.ylabel("PC2")
-plt.savefig(results_dir / "pca_variance.png", dpi=300)
+plt.savefig(results_dir / f"pca_variance.png_k_{k_val}.png", dpi=300)
 plt.close()
 
 """
@@ -113,7 +116,8 @@ within cluster squared euclidean distance to centroids
 here we start with 3 clusters, run k means with 10 different centroid seeds and pick the best
 random_state ensures reproducible labels
 """
-kmeans = KMeans(n_clusters=3, n_init=10, random_state=42)
+
+kmeans = KMeans(n_clusters=k_val, n_init=10, random_state=42)
 labels = kmeans.fit_predict(Z)
 
 plt.figure(figsize=(6, 5))
@@ -122,7 +126,7 @@ plt.title("t-SNE of EGF response clusters")
 plt.xlabel("t-SNE 1")
 plt.ylabel("t-SNE 2")
 plt.colorbar(label="Cluster")
-plt.savefig(results_dir / "tsne_clusters.png", dpi=300)
+plt.savefig(results_dir / f"tsne_clusters_k_{k_val}.png", dpi=300)
 plt.close()
 """
 X_df includes each column as a time point
@@ -141,7 +145,7 @@ plt.xlabel("Time (min)")
 plt.ylabel("Z-scored phospho-signal")
 plt.title("Average EGF response per cluster")
 plt.legend()
-plt.savefig(results_dir / "mean_timecourses.png", dpi=300)
+plt.savefig(results_dir / f"mean_timecourses_k_{k_val}.png", dpi=300)
 plt.close()
 
 
@@ -153,6 +157,7 @@ Validation via silhouette and gap
 # initialize list
 silhouette_scores = []
 
+# define k range
 K_range = range(2, 10)
 
 for k in K_range:
@@ -168,9 +173,9 @@ plt.xlabel("Number of clusters (k)")
 plt.ylabel("Mean Silhouette Score")
 plt.grid(True)
 plt.tight_layout()
-plt.savefig(results_dir / "silhouette_scores.png", dpi=300)
+plt.savefig(results_dir / f"silhouette_scores_k_{k_val}.png", dpi=300)
 plt.close()
 
-
+# print best k
 best_k_sillhouette = K_range[np.argmax(silhouette_scores)]
 print(f"optimal k by silhouette: ", {best_k_sillhouette})
