@@ -503,3 +503,5 @@ The p value is below 0.05 so we can reject the null hypothesis that each cluster
 do not differ significantly.
 
 """
+
+print(df.shape)
