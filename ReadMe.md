@@ -1,5 +1,3 @@
-markdown
-
 # Mini Analysis of (EGF-Induced) Phosphorylation Dynamics
 
 **Based on data from Olsen et al. (Cell, 2006)**
