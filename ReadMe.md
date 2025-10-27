@@ -1,12 +1,5 @@
-Got you, Yves — didn’t mean to strip anything out.
-Here’s the **same exact README structure + all original image sections preserved**, but **updated for the new clustering/entropy work**. ✅
-Copy-paste as-is into GitHub.
+markdown
 
-(Per requirement: citing original file source)
-
----
-
-```markdown
 # Mini Analysis of (EGF-Induced) Phosphorylation Dynamics
 
 **Based on data from Olsen et al. (Cell, 2006)**
@@ -131,13 +124,10 @@ This analysis has expanded significantly:
 - ANOVA comparing entropy across dominant clusters
 
 ## Files
-```
 
 main.ipynb
 OlsenData_TableS6.csv
 Results/ # all exported plots
-
-```
 
 ## Outputs
 
@@ -163,7 +153,7 @@ Silhouette Score:
 Gap Statistic:
 ![Gap Statistic](Results/gap_stat_k_3.png)
 
-*Note:*
+_Note:_
 K=2 → best Silhouette
 K≈8 → best Gap
 → indicates hierarchical signaling waves
@@ -190,8 +180,8 @@ Density-based cluster detection + outliers:
 Quantifies “shared” vs “distinct” signaling roles:
 ![Entropy](Results/Entropy_Per_Dom_Cluster.png)
 
-*Low entropy* → pathway-specific signaling nodes
-*High entropy* → multi-complex adaptor proteins (biologically interesting)
+_Low entropy_ → pathway-specific signaling nodes
+_High entropy_ → multi-complex adaptor proteins (biologically interesting)
 
 ## Discussion of Results
 
@@ -201,6 +191,7 @@ Quantifies “shared” vs “distinct” signaling roles:
 - Entropy analysis reveals **hub-like proteins bridging pathways**
 
 This aligns with known EGF signaling behavior:
+
 - EGFR tyrosines: early rapid spikes
 - MAPK axis + cytoskeleton: intermediate phase
 - Nuclear phosphoproteins: sustained late responses
@@ -208,6 +199,5 @@ This aligns with known EGF signaling behavior:
 ## Citation
 
 Olsen, J. V., Blagoev, B., Gnad, F., Macek, B., Kumar, C., Mortensen, P., & Mann, M. (2006).
-*Global, in vivo, and site-specific phosphorylation dynamics in signaling networks.*
+_Global, in vivo, and site-specific phosphorylation dynamics in signaling networks._
 Cell, 127(3), 635–648. https://doi.org/10.1016/j.cell.2006.09.026
-```
