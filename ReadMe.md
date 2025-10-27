@@ -23,7 +23,7 @@
 
 The goal of Olsen et al. (2006) was to map phosphorylation signaling dynamics following epidermal growth factor (EGF) stimulation. Phosphorylation is a key regulatory event — EGFR activation triggers cascades across hundreds of downstream proteins.
 
-Mass spectrometry was used to track abundance of phosphopeptides at multiple timepoints post-stimulation. Peptides were mapped using Mascot search results.
+Mass spectrometry (MS) was used to track intensity of phosphopeptides at multiple timepoints after stimulation. Peptides were mapped using Mascot search results.
 
 ## Biological Context
 
@@ -98,25 +98,25 @@ Table S6 captures the most meaningful phosphorylation behaviors ranging from:
 
 This analysis has expanded significantly:
 
-✅ Loads and cleans phosphosite time-course data  
-✅ Z-score normalization per peptide (temporal shape only)  
-✅ Dimensionality reduction:
+1. Loads and cleans phosphosite time-course data
+2. Z-score normalization per peptide (temporal shape only)
+3. Dimensionality reduction:
 
 - PCA variance structure
 - t-SNE visualization
 
-✅ Multiple clustering algorithms:
+4. Multiple clustering algorithms:
 
 - **K-Means** (k = 2–4 tested)
 - **Gaussian Mixture Model (GMM)** → soft membership probabilities
 - **HDBSCAN** → density clusters + biologically-relevant outliers
 
-✅ Cluster validation:
+5. Cluster validation:
 
 - Silhouette Score
 - Gap Statistic
 
-✅ **New biological insight approaches**
+6. **New biological insight approaches**
 
 - Membership entropy → quantifies “cross-pathway” ambiguity
 - ANOVA comparing entropy across dominant clusters
@@ -184,7 +184,7 @@ _High entropy_ → multi-complex adaptor proteins (biologically interesting)
 ## Discussion of Results
 
 - **2 dominant signaling states** explain most variance
-- But deeper analysis reveals **sub-structure** — multiple biological waves
+- But deeper analysis reveals **sub-structure**: multiple biological waves
 - HDBSCAN highlights sparsely activated phosphosites → potential rare regulators
 - Entropy analysis reveals **hub-like proteins bridging pathways**
 
