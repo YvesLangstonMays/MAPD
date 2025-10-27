@@ -123,9 +123,9 @@ This analysis has expanded significantly:
 
 ## Files
 
-main.ipynb
-OlsenData_TableS6.csv
-Results/ # all exported plots
+- main.ipynb
+- OlsenData_TableS6.csv
+- Results/ # all exported plots
 
 ## Outputs
 
