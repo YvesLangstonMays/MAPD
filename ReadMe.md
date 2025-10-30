@@ -191,7 +191,7 @@ Density-based cluster detection + outliers:
 
 ### Fuzzy Entropy / Ambiguity Analysis
 
-Quantifies “shared” vs “distinct” signaling roles:
+Entropy quantifies the "shared" vs "distinct" roles, separating those that are involved in multiple pathways and thsoe that act mostly in a single pathway.
 ![Entropy](Results/Entropy_Per_Dom_Cluster.png)
 
 _Low entropy_ → pathway-specific signaling nodes
