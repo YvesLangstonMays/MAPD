@@ -133,7 +133,6 @@ This analysis has expanded significantly:
 
 ![Average EGF Response](Results/mean_timecourses_k_3.png)
 ![PCA Variance](Results/pca_variance_k_3.png)
-![t-SNE Clusters](Results/tsne_clusters_k_3.png)
 
 ### K-Means: K = 2
 
