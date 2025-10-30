@@ -147,8 +147,16 @@ The first two principal components capture 44.1% and 28.3% of the variance in th
 
 ### K-Means: K = 2
 
+#### Average EGF Response
+
 ![Average EGF Response](Results/mean_timecourses_k_2.png)
+
+#### PCA1 vs PCA2
+
 ![PCA1 vs PCA 2](Results/pca_variance_k_2_pca1v2.png)
+
+#### PCA2 vs PCA3
+
 ![PCA2 vs PCA 3](Results/pca_variance_k_2_pca1v2.png)
 
 ---
