@@ -199,8 +199,8 @@ Density-based cluster detection + outliers:
 Entropy quantifies the "shared" vs "distinct" roles, separating those that are involved in multiple pathways and thsoe that act mostly in a single pathway.
 ![Entropy](Results/Entropy_Per_Dom_Cluster.png)
 
-_Low entropy_ → pathway-specific signaling nodes
-_High entropy_ → multi-complex adaptor proteins (biologically interesting)
+- _Low entropy_ → pathway-specific signaling nodes
+- _High entropy_ → multi-complex adaptor proteins (biologically interesting)
 
 ## Discussion
 
