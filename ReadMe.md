@@ -170,6 +170,8 @@ shows a relevant phosphrylation pattern.
 
 Silhouette Score:
 ![Silhouette Score](Results/silhouette_scores_k_3.png)
+Silhouette scores compare the intra cluster distances with the distances between clusters to minimize overlap and provide the k value
+at which this is accomplished.
 
 Gap Statistic:
 ![Gap Statistic](Results/gap_stat_k_3.png)
