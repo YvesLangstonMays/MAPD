@@ -131,11 +131,17 @@ This analysis has expanded significantly:
 
 ### K-Means: K = 3
 
+#### Average EGF Response
+
 ![Average EGF Response](Results/mean_timecourses_k_3.png)
+
+#### PCA1 vs PCA2
 
 ![PC1 vs PC2](Results/pca_variance_k_3_pca1v2.png)
 The first two principal components capture 44.1% and 28.3% of the variance in the data respectively, and
 72.9% total. The remaning components, 3 through 5, represent 16.49, 11.16, and 2.96e-06 percent of the data respectively.
+
+#### PCA2 vs PCA 3
 
 ![PC2 vs PC3](Results/pca_variance_k_3_pca2v3.png)
 
