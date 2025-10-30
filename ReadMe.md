@@ -162,7 +162,6 @@ K≈8 → best Gap
 ### Gaussian Mixture Model (GMM)
 
 Soft membership assignments:
-![GMM t-SNE](Results/tsne_gmm_clusters_k_3.png)
 ![GMM Scores](Results/gmm_scores_k_3.png)
 
 ---
@@ -170,7 +169,6 @@ Soft membership assignments:
 ### HDBSCAN
 
 Density-based cluster detection + outliers:
-![HDBSCAN Clusters](Results/tsne_hdbscan_clusters_k_3.png)
 
 ---
 
