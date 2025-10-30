@@ -103,11 +103,10 @@ This analysis has expanded significantly:
 3. Dimensionality reduction:
 
 - PCA variance structure
-- t-SNE visualization
 
 4. Multiple clustering algorithms:
 
-- **K-Means** (k = 2–4 tested)
+- **K-Means** (k = 2-3 tested)
 - **Gaussian Mixture Model (GMM)** → soft membership probabilities
 - **HDBSCAN** → density clusters + biologically-relevant outliers
 
@@ -144,6 +143,7 @@ The first two principal components capture 44.1% and 28.3% of the variance in th
 #### PCA2 vs PCA 3
 
 ![PC2 vs PC3](Results/pca_variance_k_3_pca2v3.png)
+Principle component 3 captures 16.5% of the variance in the data.
 
 ### K-Means: K = 2
 
