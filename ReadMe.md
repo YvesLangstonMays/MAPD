@@ -174,8 +174,8 @@ Silhouette Score:
 Gap Statistic:
 ![Gap Statistic](Results/gap_stat_k_3.png)
 
-K=2 → best Silhouette
-K≈8 → best Gap → indicates hierarchical signaling waves
+- K=2 → best Silhouette
+- K≈8 → best Gap → indicates hierarchical signaling waves
 
 ---
 
