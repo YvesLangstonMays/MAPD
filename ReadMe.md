@@ -133,14 +133,17 @@ This analysis has expanded significantly:
 
 ![Average EGF Response](Results/mean_timecourses_k_3.png)
 
-![PCA Variance](Results/pca_variance_k_3.png)
+![PC1 vs PC2](Results/pca_variance_k_3_pca1v2.png)
 The first two principal components capture 44.1% and 28.3% of the variance in the data respectively, and
 72.9% total. The remaning components, 3 through 5, represent 16.49, 11.16, and 2.96e-06 percent of the data respectively.
+
+![PC2 vs PC3](Results/pca_variance_k_3_pca2v3.png)
 
 ### K-Means: K = 2
 
 ![Average EGF Response](Results/mean_timecourses_k_2.png)
-![PCA Variance](Results/pca_variance_k_2.png)
+![PCA1 vs PCA 2](Results/pca_variance_k_2_pca1v2.png)
+![PCA2 vs PCA 3](Results/pca_variance_k_2_pca1v2.png)
 
 ---
 
@@ -180,7 +183,7 @@ Quantifies “shared” vs “distinct” signaling roles:
 _Low entropy_ → pathway-specific signaling nodes
 _High entropy_ → multi-complex adaptor proteins (biologically interesting)
 
-## Discussion of Results
+## Discussion
 
 - **2 dominant signaling states** explain most variance
 - But deeper analysis reveals **sub-structure**: multiple biological waves
