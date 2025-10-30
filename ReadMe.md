@@ -133,6 +133,9 @@ This analysis has expanded significantly:
 #### Average EGF Response
 
 ![Average EGF Response](Results/mean_timecourses_k_3.png)
+There are three clusters that represent three unique groups of phosphosites that display similar behavior over time.
+Clusters 0 and 1 show variable phosphorylation, whereas cluster 2 suggests that its constituents are consistently
+phosphorylated over the time period.
 
 #### PCA1 vs PCA2
 
@@ -150,6 +153,8 @@ Principle component 3 captures 16.5% of the variance in the data.
 #### Average EGF Response
 
 ![Average EGF Response](Results/mean_timecourses_k_2.png)
+Clusters 0 and 1 show varying, opposing phosphorylation patterns. This is consistent with a k of 3, but not quite as robust, as the third cluster
+shows a relevant phosphrylation pattern.
 
 #### PCA1 vs PCA2
 
@@ -157,7 +162,7 @@ Principle component 3 captures 16.5% of the variance in the data.
 
 #### PCA2 vs PCA3
 
-![PCA2 vs PCA 3](Results/pca_variance_k_2_pca1v2.png)
+![PCA2 vs PCA 3](Results/pca_variance_k_2_pca2v3.png)
 
 ---
 
