@@ -164,20 +164,25 @@ shows a relevant phosphrylation pattern.
 
 ![PCA2 vs PCA 3](Results/pca_variance_k_2_pca2v3.png)
 
----
+The two plots above support the earlier conclusion that the first two principle components and a k of 3 are the most robust.
 
 ### Model Validation
+
+Dispersion:
+
+_Dispersion plot here._
 
 Silhouette Score:
 ![Silhouette Score](Results/silhouette_scores_k_3.png)
 Silhouette scores compare the intra cluster distances with the distances between clusters to minimize overlap and provide the k value
-at which this is accomplished.
+at which this is accomplished. A higher score represents better clustering.
 
 Gap Statistic:
 ![Gap Statistic](Results/gap_stat_k_3.png)
 
 - K=2 → best Silhouette
 - K≈8 → best Gap → indicates hierarchical signaling waves
+- K = 8 may represent overfitting.
 
 ---
 
@@ -214,6 +219,14 @@ This aligns with known EGF signaling behavior:
 - EGFR tyrosines: early rapid spikes
 - MAPK axis + cytoskeleton: intermediate phase
 - Nuclear phosphoproteins: sustained late responses
+
+## In Progress
+
+- Mapping phosphosites to known signaling pathways
+- Identifying kinase-substrate relationships using NetworkKIN / PhosphositePlus
+- Annotating clusters with protein function, domain context, and disease relevance
+- Evaluating EGFR downstream signaling roles
+- tracing cytoskeletal adaptors vs nuclear feedback proteins
 
 ## Citation
 
