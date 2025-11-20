@@ -142,7 +142,7 @@ phosphorylated over the time period.
 
 ![PC1 vs PC2](Results/pca_variance_k_3_pca1v2.png)
 The first two principal components capture 44.1% and 28.3% of the variance in the data respectively, and
-72.9% total. The remaning components, 3 through 5, represent 16.49, 11.16, and 2.96e-06 percent of the data respectively.
+72.4% total. The remaning components, 3 through 5, represent 16.49, 11.16, and 2.96e-06 percent of the data respectively.
 
 #### PCA2 vs PCA 3
 
@@ -226,6 +226,7 @@ This aligns with known EGF signaling behavior:
 ## In Progress
 
 - Implement dispersion metric for clustering
+- Map the pS/T by ID and cluster to visualize and for use in next steps
 - Mapping phosphosites to known signaling pathways
 - Identifying kinase-substrate relationships using NetworkKIN / PhosphositePlus
 - Annotating clusters with protein function, domain context, and disease relevance
