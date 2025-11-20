@@ -223,6 +223,7 @@ This aligns with known EGF signaling behavior:
 
 ## In Progress
 
+- Implement dispersion metric for clustering
 - Mapping phosphosites to known signaling pathways
 - Identifying kinase-substrate relationships using NetworkKIN / PhosphositePlus
 - Annotating clusters with protein function, domain context, and disease relevance
