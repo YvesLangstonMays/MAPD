@@ -173,6 +173,8 @@ Dispersion:
 
 _Dispersion plot here._
 
+<!--
+
 Silhouette Score:
 ![Silhouette Score](Results/silhouette_scores_k_3.png)
 Silhouette scores compare the intra cluster distances with the distances between clusters to minimize overlap and provide the k value
@@ -198,7 +200,7 @@ Soft membership assignments:
 
 Density-based cluster detection + outliers:
 
----
+--- -->
 
 ### Fuzzy Entropy / Ambiguity Analysis
 
