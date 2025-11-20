@@ -3,3 +3,4 @@ OlsenData_TableS2.csv
 OlsenData_TableS6_clustered_faiss.csv
 /.vscode
 /environments
+ptg.sh
