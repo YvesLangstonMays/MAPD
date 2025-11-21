@@ -227,6 +227,7 @@ This aligns with known EGF signaling behavior:
 ## In Progress
 
 - Show that high entropy sites correspond to known hub proteins
+- Show that low entropy sites correspond to known pathway specific proteins
 - Compare entropy based method against hierarchical and correlation based methodds
 - Quantify the differences in performance
 
