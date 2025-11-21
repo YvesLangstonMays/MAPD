@@ -18,6 +18,7 @@
 - [Outputs](#outputs)
 - [Discussion of Results](#discussion-of-results)
 - [Work In Progress](#in-progress)
+- [Future Work](#future-work)
 - [Citation](#citation)
 
 ## Background
@@ -224,6 +225,12 @@ This aligns with known EGF signaling behavior:
 - Nuclear phosphoproteins: sustained late responses
 
 ## In Progress
+
+- Show that high entropy sites correspond to known hub proteins
+- Compare entropy based method against hierarchical and correlation based methodds
+- Quantify the differences in performance
+
+## Future Work
 
 - Implement dispersion metric for clustering
 - Map the pS/T by ID and cluster to visualize and for use in next steps
