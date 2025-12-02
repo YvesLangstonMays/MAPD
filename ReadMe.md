@@ -213,7 +213,7 @@ Entropy quantifies the "shared" vs "distinct" roles, separating those that are i
 
 ### Tukey HSD
 
-| group1       | group2       | meandiff | p-adj  | lower   | upper   | reject |
+| Group1       | Group2       | Meandiff | p-adj  | Lower   | Upper   | Reject |
 | ------------ | ------------ | -------- | ------ | ------- | ------- | ------ |
 | membership.A | membership.B | 0.0360   | 0.5292 | -0.0243 | 0.0963  | False  |
 | membership.A | membership.C | -0.0953  | 0.0001 | -0.1559 | -0.0348 | True   |
