@@ -211,6 +211,8 @@ Entropy quantifies the "shared" vs "distinct" roles, separating those that are i
 - _Low entropy_ → pathway-specific signaling nodes
 - _High entropy_ → multi-complex adaptor proteins (biologically interesting)
 
+###
+
 ## Discussion
 
 - **2 dominant signaling states** explain most variance
