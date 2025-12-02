@@ -231,14 +231,14 @@ Entropy quantifies the "shared" vs "distinct" roles, separating those that are i
 | membership.D | membership.F | 0.1890   | 0.0000 | 0.1238  | 0.2543  | True   |
 | membership.E | membership.F | -0.0182  | 0.9827 | -0.0931 | 0.0567  | False  |
 
-A - C reject
-A - D reject
-B - C reject
-B - D reject
-C - E reject
-C - F reject
-D - E reject
-D - F reject
+- A - C reject
+- A - D reject
+- B - C reject
+- B - D reject
+- C - E reject
+- C - F reject
+- D - E reject
+- D - F reject
 
 The above differ significantly. What is the biological importance of this?
 
