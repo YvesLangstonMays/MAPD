@@ -211,7 +211,25 @@ Entropy quantifies the "shared" vs "distinct" roles, separating those that are i
 - _Low entropy_ → pathway-specific signaling nodes
 - _High entropy_ → multi-complex adaptor proteins (biologically interesting)
 
-###
+### Tukey HSD
+
+| group1       | group2       | meandiff | p-adj  | lower   | upper   | reject |
+| ------------ | ------------ | -------- | ------ | ------- | ------- | ------ |
+| membership.A | membership.B | 0.0360   | 0.5292 | -0.0243 | 0.0963  | False  |
+| membership.A | membership.C | -0.0953  | 0.0001 | -0.1559 | -0.0348 | True   |
+| membership.A | membership.D | -0.1384  | 0.0000 | -0.1966 | -0.0802 | True   |
+| membership.A | membership.E | 0.0688   | 0.0501 | 0.0000  | 0.1377  | False  |
+| membership.A | membership.F | 0.0506   | 0.3390 | -0.0214 | 0.1227  | False  |
+| membership.B | membership.C | -0.1313  | 0.0000 | -0.1860 | -0.0767 | True   |
+| membership.B | membership.D | -0.1744  | 0.0000 | -0.2265 | -0.1223 | True   |
+| membership.B | membership.E | 0.0328   | 0.6833 | -0.0309 | 0.0966  | False  |
+| membership.B | membership.F | 0.0146   | 0.9894 | -0.0525 | 0.0818  | False  |
+| membership.C | membership.D | -0.0431  | 0.1754 | -0.0954 | 0.0093  | False  |
+| membership.C | membership.E | 0.1642   | 0.0000 | 0.1002  | 0.2281  | True   |
+| membership.C | membership.F | 0.1460   | 0.0000 | 0.0786  | 0.2133  | True   |
+| membership.D | membership.E | 0.2072   | 0.0000 | 0.1455  | 0.2690  | True   |
+| membership.D | membership.F | 0.1890   | 0.0000 | 0.1238  | 0.2543  | True   |
+| membership.E | membership.F | -0.0182  | 0.9827 | -0.0931 | 0.0567  | False  |
 
 ## Discussion
 
