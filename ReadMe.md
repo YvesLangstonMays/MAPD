@@ -19,6 +19,7 @@
 - [Discussion of Results](#discussion-of-results)
 - [Work In Progress](#in-progress)
 - [Future Work](#future-work)
+- [Use of AI](#use-of-ai)
 - [Citation](#citation)
 
 ## Background
@@ -273,6 +274,10 @@ This aligns with known EGF signaling behavior:
 - Annotating clusters with protein function, domain context, and disease relevance
 - Evaluating EGFR downstream signaling roles
 - tracing cytoskeletal adaptors vs nuclear feedback proteins
+
+## Use Of AI
+
+Large language models were used to quickly find relevant documentation for the used Python modules.
 
 ## Citation
 
