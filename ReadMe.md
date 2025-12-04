@@ -212,6 +212,13 @@ Entropy quantifies the "shared" vs "distinct" roles, separating those that are i
 - _Low entropy_ → pathway-specific signaling nodes
 - _High entropy_ → multi-complex adaptor proteins (biologically interesting)
 
+### ANOVA
+
+| ANOVA Table         | sum_sq    | df     | F         | PR(>F)       |
+| ------------------- | --------- | ------ | --------- | ------------ |
+| C(dominant_cluster) | 6.821040  | 5.0    | 35.286787 | 2.009496e-33 |
+| Residual            | 40.361657 | 1044.0 | NaN       | NaN.         |
+
 ### Tukey HSD
 
 | Group1       | Group2       | Meandiff | p-adj  | Lower   | Upper   | Reject |
