@@ -277,7 +277,8 @@ This aligns with known EGF signaling behavior:
 
 ## Use Of AI
 
-Large language models were used to quickly find relevant documentation for the used Python modules.
+Large language models were used to speed up documentation lookup and clarify library functions.
+All code, logic, and implementation decisions were written and verified by me.
 
 ## Citation
 
