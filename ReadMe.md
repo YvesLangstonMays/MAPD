@@ -254,7 +254,7 @@ Membership to C and D may represent a more broad and less specific role compared
 
 #### Low Entropy
 
-Cytokine-like nuclear factor n-pac (Q49A26/IPI00000155) has an entropy of 0.21748 with dominant membership to cluster D. It is involved in regulating p38 MAP kinase activity by mediating stress activation of p38alpha/MAPK14 and specifically regulating MAPK14 signaling.
+- Cytokine-like nuclear factor n-pac (Q49A26/IPI00000155) has an entropy of 0.21748 with dominant membership to cluster D. It is involved in regulating p38 MAP kinase activity by mediating stress activation of p38alpha/MAPK14 and specifically regulating MAPK14 signaling.
 
 #### High Entropy
 
