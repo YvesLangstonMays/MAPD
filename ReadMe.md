@@ -293,6 +293,10 @@ All code, logic, and implementation decisions were written and verified by me.
 
 ## Citation
 
-Olsen, J. V., Blagoev, B., Gnad, F., Macek, B., Kumar, C., Mortensen, P., & Mann, M. (2006).
-_Global, in vivo, and site-specific phosphorylation dynamics in signaling networks._
-Cell, 127(3), 635–648. https://doi.org/10.1016/j.cell.2006.09.026
+1. Olsen, J. V., Blagoev, B., Gnad, F., Macek, B., Kumar, C., Mortensen, P., & Mann, M. (2006).
+   _Global, in vivo, and site-specific phosphorylation dynamics in signaling networks._
+   Cell, 127(3), 635–648. https://doi.org/10.1016/j.cell.2006.09.026
+
+2. Zhang, W., & Liu, H. (2002).
+   MAPK signal pathways in the regulation of cell proliferation in mammalian cells.
+   Cell Research, 12, 9–18. https://doi.org/10.1038/sj.cr.7290105
