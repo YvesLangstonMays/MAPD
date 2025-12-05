@@ -99,14 +99,9 @@ Table S6 captures the most meaningful phosphorylation behaviors ranging from:
 
 ## What This Repository Does
 
-This analysis has expanded significantly:
-
 1. Loads and cleans phosphosite time-course data
 2. Z-score normalization per peptide (temporal shape only)
-3. Dimensionality reduction:
-
-- PCA variance structure
-
+3. Dimensionality reduction
 4. Multiple clustering algorithms:
 
 - **K-Means** (k = 2-3 tested)
@@ -118,7 +113,7 @@ This analysis has expanded significantly:
 - Silhouette Score
 - Gap Statistic
 
-6. **New biological insight approaches**
+6. Biological Insight Approaches
 
 - Membership entropy → quantifies “cross-pathway” ambiguity
 - ANOVA comparing entropy across dominant clusters
