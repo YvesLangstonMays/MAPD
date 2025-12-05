@@ -248,8 +248,6 @@ Entropy quantifies the "shared" vs "distinct" roles, separating those that are i
 - D - E reject
 - D - F reject
 
-Membership to C and D may represent a more broad and less specific role compared to the other memberhsip groups?
-
 ### Verification Against Known Proteins
 
 Using biological DataBase network, IPI values of low and high entropy peptides were converted to Uniprot values.
