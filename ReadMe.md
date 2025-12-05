@@ -250,7 +250,7 @@ Entropy quantifies the "shared" vs "distinct" roles, separating those that are i
 
 ### Verification Against Known Proteins
 
-Using biological DataBase network, IPI values of low and high entropy peptides were converted to Uniprot values.
+Using biological DataBase network, Accession IDs in IPI format of low and high entropy peptides were converted to Uniprot format.
 
 #### Low Entropy
 
