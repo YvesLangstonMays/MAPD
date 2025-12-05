@@ -276,20 +276,20 @@ This aligns with known EGF signaling behavior:
 
 ## In Progress
 
-- Show that high entropy sites correspond to known hub proteins
+<!-- - Show that high entropy sites correspond to known hub proteins
 - Show that low entropy sites correspond to known pathway specific proteins
 - Compare entropy based method against hierarchical and correlation based methodds
-- Quantify the differences in performance
+- Quantify the differences in performance -->
 
 ## Future Work
 
-- Implement dispersion metric for clustering
+<!-- - Implement dispersion metric for clustering
 - Map the pS/T by ID and cluster to visualize and for use in next steps
 - Mapping phosphosites to known signaling pathways
 - Identifying kinase-substrate relationships using NetworkKIN / PhosphositePlus
 - Annotating clusters with protein function, domain context, and disease relevance
 - Evaluating EGFR downstream signaling roles
-- tracing cytoskeletal adaptors vs nuclear feedback proteins
+- tracing cytoskeletal adaptors vs nuclear feedback proteins -->
 
 ## Use Of AI
 
