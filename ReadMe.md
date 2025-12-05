@@ -263,7 +263,7 @@ Using biological DataBase network, IPI values of low and high entropy peptides w
 
 ## Discussion
 
-- **2 dominant signaling states** explain most variance
+<!-- - **2 dominant signaling states** explain most variance
 - Deeper analysis reveals **sub-structure**: multiple biological waves
 - HDBSCAN highlights sparsely activated phosphosites → potential rare regulators
 - Entropy analysis reveals **hub-like proteins bridging pathways**
@@ -272,7 +272,7 @@ This aligns with known EGF signaling behavior:
 
 - EGFR tyrosines: early rapid spikes
 - MAPK axis + cytoskeleton: intermediate phase
-- Nuclear phosphoproteins: sustained late responses
+- Nuclear phosphoproteins: sustained late responses -->
 
 ## In Progress
 
