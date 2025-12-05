@@ -250,12 +250,16 @@ Entropy quantifies the "shared" vs "distinct" roles, separating those that are i
 
 The above differ significantly. What is the biological importance of this?
 
-Membership to C and D may represent a more broad and less specific role compared to the other memberhsip groups
+Membership to C and D may represent a more broad and less specific role compared to the other memberhsip groups?
+
+### Verification Against Known Proteins
+
+Cytokine-like nuclear factor n-pac (Q49A26) has an entropy of 0.21748 with dominant membership to cluster D. It is involved in regulating p38 MAP kinase activity by mediating stress activation of p38alpha/MAPK14 and specifically regulating MAPK14 signaling.
 
 ## Discussion
 
 - **2 dominant signaling states** explain most variance
-- But deeper analysis reveals **sub-structure**: multiple biological waves
+- Deeper analysis reveals **sub-structure**: multiple biological waves
 - HDBSCAN highlights sparsely activated phosphosites → potential rare regulators
 - Entropy analysis reveals **hub-like proteins bridging pathways**
 
