@@ -124,6 +124,8 @@ Table S6 captures the most meaningful phosphorylation behaviors ranging from:
 - OlsenData_TableS6.csv
 - Results/ # all exported plots
 
+
+<!--
 ## Outputs
 
 ### K-Means: K = 3
@@ -154,7 +156,7 @@ Principle component 3 captures 16.5% of the variance in the data.
 Clusters 0 and 1 show varying, opposing phosphorylation patterns. This is consistent with a k of 3, but not quite as robust, as the third cluster
 shows a relevant phosphrylation pattern.
 
-<!-- #### PCA1 vs PCA2
+ #### PCA1 vs PCA2
 
 ![PCA1 vs PCA 2](Results/pca_variance_k_2_pca1v2.png)
 
