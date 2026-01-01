@@ -160,7 +160,7 @@ shows a relevant phosphrylation pattern.
 
 #### PCA2 vs PCA3
 
-![PCA2 vs PCA 3](Results/pca_variance_k_2_pca2v3.png) -->
+![PCA2 vs PCA 3](Results/pca_variance_k_2_pca2v3.png) 
 
 The plot above supports the earlier conclusion that a k of 3 is the most robust.
 
@@ -170,7 +170,7 @@ Dispersion:
 
 _Dispersion plot here._
 
-<!--
+
 
 Silhouette Score:
 ![Silhouette Score](Results/silhouette_scores_k_3.png)
@@ -197,7 +197,7 @@ Soft membership assignments:
 
 Density-based cluster detection + outliers:
 
---- -->
+
 
 ### Fuzzy Entropy / Ambiguity Analysis
 
