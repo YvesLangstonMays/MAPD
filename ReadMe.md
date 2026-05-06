@@ -125,7 +125,7 @@ Table S6 captures the most meaningful phosphorylation behaviors ranging from:
 - Results/ # all exported plots
 
 
-<!--
+
 ## Outputs
 
 ### K-Means: K = 3
@@ -260,7 +260,7 @@ Using biological DataBase network, Accession IDs in IPI format of low and high e
 
 ## Discussion
 
-<!-- - **2 dominant signaling states** explain most variance
+ **2 dominant signaling states** explain most variance
 - Deeper analysis reveals **sub-structure**: multiple biological waves
 - HDBSCAN highlights sparsely activated phosphosites → potential rare regulators
 - Entropy analysis reveals **hub-like proteins bridging pathways**
@@ -269,24 +269,24 @@ This aligns with known EGF signaling behavior:
 
 - EGFR tyrosines: early rapid spikes
 - MAPK axis + cytoskeleton: intermediate phase
-- Nuclear phosphoproteins: sustained late responses -->
+- Nuclear phosphoproteins: sustained late responses 
 
 ## In Progress
 
-<!-- - Show that high entropy sites correspond to known hub proteins
+Show that high entropy sites correspond to known hub proteins
 - Show that low entropy sites correspond to known pathway specific proteins
 - Compare entropy based method against hierarchical and correlation based methodds
-- Quantify the differences in performance -->
+- Quantify the differences in performance 
 
 ## Future Work
 
-<!-- - Implement dispersion metric for clustering
+Implement dispersion metric for clustering
 - Map the pS/T by ID and cluster to visualize and for use in next steps
 - Mapping phosphosites to known signaling pathways
 - Identifying kinase-substrate relationships using NetworkKIN / PhosphositePlus
 - Annotating clusters with protein function, domain context, and disease relevance
 - Evaluating EGFR downstream signaling roles
-- tracing cytoskeletal adaptors vs nuclear feedback proteins -->
+- tracing cytoskeletal adaptors vs nuclear feedback proteins 
 
 ## Use Of AI
 
