@@ -124,6 +124,8 @@ Table S6 captures the most meaningful phosphorylation behaviors ranging from:
 - OlsenData_TableS6.csv
 - Results/ # all exported plots
 
+
+
 ## Outputs
 
 ### K-Means: K = 3
@@ -154,13 +156,13 @@ Principle component 3 captures 16.5% of the variance in the data.
 Clusters 0 and 1 show varying, opposing phosphorylation patterns. This is consistent with a k of 3, but not quite as robust, as the third cluster
 shows a relevant phosphrylation pattern.
 
-<!-- #### PCA1 vs PCA2
+ #### PCA1 vs PCA2
 
 ![PCA1 vs PCA 2](Results/pca_variance_k_2_pca1v2.png)
 
 #### PCA2 vs PCA3
 
-![PCA2 vs PCA 3](Results/pca_variance_k_2_pca2v3.png) -->
+![PCA2 vs PCA 3](Results/pca_variance_k_2_pca2v3.png) 
 
 The plot above supports the earlier conclusion that a k of 3 is the most robust.
 
@@ -170,7 +172,7 @@ Dispersion:
 
 _Dispersion plot here._
 
-<!--
+
 
 Silhouette Score:
 ![Silhouette Score](Results/silhouette_scores_k_3.png)
@@ -197,7 +199,7 @@ Soft membership assignments:
 
 Density-based cluster detection + outliers:
 
---- -->
+
 
 ### Fuzzy Entropy / Ambiguity Analysis
 
@@ -258,7 +260,7 @@ Using biological DataBase network, Accession IDs in IPI format of low and high e
 
 ## Discussion
 
-<!-- - **2 dominant signaling states** explain most variance
+ **2 dominant signaling states** explain most variance
 - Deeper analysis reveals **sub-structure**: multiple biological waves
 - HDBSCAN highlights sparsely activated phosphosites → potential rare regulators
 - Entropy analysis reveals **hub-like proteins bridging pathways**
@@ -267,24 +269,24 @@ This aligns with known EGF signaling behavior:
 
 - EGFR tyrosines: early rapid spikes
 - MAPK axis + cytoskeleton: intermediate phase
-- Nuclear phosphoproteins: sustained late responses -->
+- Nuclear phosphoproteins: sustained late responses 
 
 ## In Progress
 
-<!-- - Show that high entropy sites correspond to known hub proteins
+Show that high entropy sites correspond to known hub proteins
 - Show that low entropy sites correspond to known pathway specific proteins
 - Compare entropy based method against hierarchical and correlation based methodds
-- Quantify the differences in performance -->
+- Quantify the differences in performance 
 
 ## Future Work
 
-<!-- - Implement dispersion metric for clustering
+Implement dispersion metric for clustering
 - Map the pS/T by ID and cluster to visualize and for use in next steps
 - Mapping phosphosites to known signaling pathways
 - Identifying kinase-substrate relationships using NetworkKIN / PhosphositePlus
 - Annotating clusters with protein function, domain context, and disease relevance
 - Evaluating EGFR downstream signaling roles
-- tracing cytoskeletal adaptors vs nuclear feedback proteins -->
+- tracing cytoskeletal adaptors vs nuclear feedback proteins 
 
 ## Use Of AI
 
